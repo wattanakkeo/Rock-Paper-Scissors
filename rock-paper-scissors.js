@@ -11,15 +11,10 @@ function computerChoice() {
   }
 }
 
-//create a funciton that generates a random number 0-99
+//Generates a random number between 0-99
 function random() {
   return parseInt(Math.random() * 100);
 }
-
-/*
-INPUT the user to input rock, paper, or scissors
-IF computerChoice() === ""
-*/
 
 function userChoice(userInput) {
   if (userInput === "1") {
@@ -46,9 +41,15 @@ while (userInput !== "f") {
     let userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
   }
   else if (user === "Rock" && computer === "Paper" || user === "Paper" && computer === "Scissors" || user === "Scissors" && computer === "Rock") {
+    alert("Computer chose " + computer)
     alert("You Lose")
   }
+  else if (user === computer) {
+    alert("Computer chose " + computer)
+    alert("Tie")
+  }
   else {
+    alert("Computer chose " + computer)
     alert("You Win")
   }
   userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
