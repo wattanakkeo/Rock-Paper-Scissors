@@ -1,3 +1,8 @@
+//Generates a random number between 1-100 for random selection
+function random() {
+  return parseInt((Math.random() * 100) + 1);
+}
+
 function computerChoice() {
   const randomInt = random();
   if (randomInt <= 33) {
@@ -11,19 +16,14 @@ function computerChoice() {
   }
 }
 
-//Generates a random number between 0-99
-function random() {
-  return parseInt(Math.random() * 100);
-}
-
 function userChoice(userInput) {
-  if (userInput === "1") {
+  if (userInput === 1) {
     return "Rock"
   }
-  else if (userInput === "2") {
+  else if (userInput === 2) {
     return "Paper"
   }
-  else if (userInput === "3") {
+  else if (userInput === 3) {
     return "Scissors"
   }
   else {
@@ -31,44 +31,38 @@ function userChoice(userInput) {
   }
 }
 
-/*let userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
+// The purpose of this function is to stop the game after a certain amount of wins and it
+//  stays within the eventListener
+function playRound(userChoice) {
+  let playerWins = 0;
+  let computerWins = 0;
 
-while (userInput !== "f") {
-  let computer = computerChoice()
-  let user = userChoice(userInput)
+  if (playerWins === 5 || computerWins === 5) {
+    return;
+  }
+  
 
-  if (user === "Invalid selection") {
-    let userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
-  }
-  else if (user === "Rock" && computer === "Paper" || user === "Paper" && computer === "Scissors" || user === "Scissors" && computer === "Rock") {
-    alert("Computer chose " + computer)
-    alert("You Lose")
-  }
-  else if (user === computer) {
-    alert("Computer chose " + computer)
-    alert("Tie")
-  }
-  else {
-    alert("Computer chose " + computer)
-    alert("You Win")
-  }
-  userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
 }
-  */
+
+// choseRock, etc functions were created for buttons to interact with userChoice() funciton
+let user = null;
 
 function choseRock() {
-  userInput = 1;
-  console.log("userInput:", userInput);
+  user = userChoice(1);
+  playRound(user);
+  console.log(user);
 }
 
 function chosePaper() {
-  userInput = 2;
-  console.log("userInput:", userInput);
+  user = userChoice(2);
+  playRound(user);
+  console.log(user);
 }
 
 function choseScissors() {
-  userInput = 3;
-  console.log("userInput:", userInput);
+  user = userChoice(3);
+  playRound(user);
+  console.log(user);
 }
 
 const rock = document.querySelector("#rock");
@@ -77,5 +71,9 @@ rock.addEventListener("click", choseRock);
 const paper = document.querySelector("#paper");
 paper.addEventListener("click", chosePaper);
 
-const scissors = document.querySelector("Scissors");
+const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", choseScissors);
+
+// 1. Create buttons for when the user selects rock paper or scissors
+// 2. Keep track of the score for the computer and the player stopping
+//      stopping at whoever wins 5 first
