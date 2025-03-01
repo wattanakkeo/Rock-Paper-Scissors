@@ -31,7 +31,7 @@ function userChoice(userInput) {
   }
 }
 
-let userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
+/*let userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
 
 while (userInput !== "f") {
   let computer = computerChoice()
@@ -54,3 +54,28 @@ while (userInput !== "f") {
   }
   userInput = prompt("Enter\n1 for Rock\n2 for Paper\n3 for Scissors")
 }
+  */
+
+function choseRock() {
+  userInput = 1;
+  console.log("userInput:", userInput);
+}
+
+function chosePaper() {
+  userInput = 2;
+  console.log("userInput:", userInput);
+}
+
+function choseScissors() {
+  userInput = 3;
+  console.log("userInput:", userInput);
+}
+
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", choseRock);
+
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", chosePaper);
+
+const scissors = document.querySelector("Scissors");
+scissors.addEventListener("click", choseScissors);
