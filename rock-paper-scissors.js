@@ -33,15 +33,27 @@ function userChoice(userInput) {
 
 // The purpose of this function is to stop the game after a certain amount of wins and it
 //  stays within the eventListener
-function playRound(userChoice) {
-  let playerWins = 0;
-  let computerWins = 0;
+let playerWins = 0;
+let computerWins = 0;
 
+function playRound(user) {
   if (playerWins === 5 || computerWins === 5) {
-    return;
+    alert("The game has ended");
   }
   
-
+  let computer = computerChoice();
+  if (user === "Rock" && computer === "Paper" || user === "Paper" && computer === "Scissors" || user === "Scissors" && computer === "Rock") {
+    computerWins++;
+    alert("You Lose")
+  }
+  else if (user === computer) {
+    alert("Tie")
+  }
+  else {
+    playerWins++;
+    alert("You Win")
+  }
+  console.log(playerWins);
 }
 
 // choseRock, etc functions were created for buttons to interact with userChoice() funciton
