@@ -2,13 +2,46 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: fantasy;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .scoreboard {
+  margin: 1rem;
   display: flex;
   justify-content: space-between;
-
-}.player-choices {
-  text-align: center;
 }
 
+.player-choices {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 2px;
+  height: 10rem;
+  width: 10rem;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.choice-image {
+  display: flex;
+  margin-top: 10vh;
+  justify-content: center;
+}
+
+.image {
+  margin: 1px;
+  background-color: black;
+  height: 40vh;
+  width: 40vh;
+}
