@@ -18,26 +18,38 @@ function computerChoice() {
 
 // The purpose of this function is to stop the game after a certain amount of wins and it
 //  stays within the eventListener
-let playerWins = 0;
+let userWins = 0;
 let computerWins = 0;
 
 function playRound(userChoice) {
-  if (playerWins === 5 || computerWins === 5) {
-    alert("The game has ended");
-  }
-  
   let computer = computerChoice();
   if (userChoice === "Rock" && computer === "Paper" || userChoice === "Paper" && computer === "Scissors" || userChoice === "Scissors" && computer === "Rock") {
     computerWins+=1;
-    alert("You Lose")
   }
   else if (userChoice === computer) {
     alert("Tie")
   }
   else {
-    playerWins+=1;
-    alert("You Win")
+    userWins+=1;
   }
+
+  if (userWins === 5 || computerWins === 5) {
+    alert("The game has ended");
+  }
+
+  userScoreTracker(userWins);
+  computerScoreTracker(computerWins);
+}
+
+// To keep track of the score and output it on screen
+function userScoreTracker(user) {
+  const userScore = document.querySelector(".user-score");
+  userScore.textContent = "Player: " + user;
+}
+
+function computerScoreTracker(computer) {
+  const computerScore = document.querySelector(".computer-score");
+  computerScore.textContent = "Computer: " + computer;
 }
 
 // To assign Rock, Paper, or Scissors to userChoice based on which button is pressed
