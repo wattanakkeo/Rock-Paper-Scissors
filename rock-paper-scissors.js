@@ -16,65 +16,49 @@ function computerChoice() {
   }
 }
 
-function userChoice(userInput) {
-  if (userInput === 1) {
-    return "Rock"
-  }
-  else if (userInput === 2) {
-    return "Paper"
-  }
-  else if (userInput === 3) {
-    return "Scissors"
-  }
-  else {
-    return "Invalid selection"
-  }
-}
-
 // The purpose of this function is to stop the game after a certain amount of wins and it
 //  stays within the eventListener
 let playerWins = 0;
 let computerWins = 0;
 
-function playRound(user) {
+function playRound(userChoice) {
   if (playerWins === 5 || computerWins === 5) {
     alert("The game has ended");
   }
   
   let computer = computerChoice();
-  if (user === "Rock" && computer === "Paper" || user === "Paper" && computer === "Scissors" || user === "Scissors" && computer === "Rock") {
-    computerWins++;
+  if (userChoice === "Rock" && computer === "Paper" || userChoice === "Paper" && computer === "Scissors" || userChoice === "Scissors" && computer === "Rock") {
+    computerWins+=1;
     alert("You Lose")
   }
-  else if (user === computer) {
+  else if (userChoice === computer) {
     alert("Tie")
   }
   else {
-    playerWins++;
+    playerWins+=1;
     alert("You Win")
   }
-  console.log(playerWins);
 }
 
-// choseRock, etc functions were created for buttons to interact with userChoice() funciton
-let user = null;
+// To assign Rock, Paper, or Scissors to userChoice based on which button is pressed
+let userChoice = null;
 
 function choseRock() {
-  user = userChoice(1);
-  playRound(user);
-  console.log(user);
+  userChoice = "Rock";
+  playRound(userChoice);
+  console.log(userChoice);
 }
 
 function chosePaper() {
-  user = userChoice(2);
-  playRound(user);
-  console.log(user);
+  userChoice = "Paper";
+  playRound(userChoice);
+  console.log(userChoice);
 }
 
 function choseScissors() {
-  user = userChoice(3);
-  playRound(user);
-  console.log(user);
+  userChoice = "Scissors";
+  playRound(userChoice);
+  console.log(userChoice);
 }
 
 const rock = document.querySelector("#rock");
@@ -86,6 +70,6 @@ paper.addEventListener("click", chosePaper);
 const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", choseScissors);
 
-// 1. Create buttons for when the user selects rock paper or scissors
+// 1. Create buttons for when the userChoice selects rock paper or scissors
 // 2. Keep track of the score for the computer and the player stopping
 //      stopping at whoever wins 5 first
