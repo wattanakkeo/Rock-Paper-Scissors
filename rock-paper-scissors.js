@@ -24,7 +24,8 @@ let computerWins = 0;
 function playRound(userChoice) {
   let computer = computerChoice();
   const SECOND = 1000;
-  setTimeout(computerSelectionImage(computer), SECOND);
+  setTimeout(() => {computerSelectionImage(computer)} , SECOND);
+
   if (userChoice === "Rock" && computer === "Paper" || userChoice === "Paper" && computer === "Scissors" || userChoice === "Scissors" && computer === "Rock") {
     computerWins+=1;
   }
@@ -36,9 +37,9 @@ function playRound(userChoice) {
   }
 
   if (userWins === 5 || computerWins === 5) {
+    alert("The game has ended");
     userWins = 0;
     computerWins = 0;
-    alert("The game has ended");
   }
 
   userScoreTracker(userWins);
