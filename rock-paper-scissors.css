@@ -40,8 +40,17 @@ img {
 }
 
 .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 1px;
   background-color: black;
   height: 40vh;
   width: 40vh;
+}
+
+.selectionImage {
+  max-height: 99%;
+  max-width: 99%;
+  object-fit: cover;
 }
